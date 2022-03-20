@@ -6,10 +6,10 @@ public class SoundVolumeChanger : MonoBehaviour
 {
     [HideInInspector] private AudioSource _audio;
 
-    private float _audioLength => _audio.clip.length;
-
     private float _minValue = 0;
     private float _maxValue = 1;
+    
+    private float _audioLength => _audio.clip.length;
 
     private void Start()
     {
