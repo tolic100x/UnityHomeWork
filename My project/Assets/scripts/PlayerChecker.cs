@@ -6,10 +6,13 @@ public class PlayerChecker : MonoBehaviour
 {
     [SerializeField] private AudioSource _audio;
 
+    public bool isInHouse { get; private set; }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
+            isInHouse = true;
             _audio.Play();
         }
     }
@@ -18,7 +21,8 @@ public class PlayerChecker : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            _audio.Stop();
+            isInHouse = false;
+
         }
     }
 }
